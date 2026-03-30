@@ -1,0 +1,51 @@
+.admin-users {
+    padding: 20px;
+    background: #f6f8fb;
+    min-height: 100vh;
+}
+
+.table-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #f1f5f9;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.role-admin {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.role-user {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.delete-btn {
+    background: #111;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+}

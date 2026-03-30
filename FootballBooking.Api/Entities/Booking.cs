@@ -9,13 +9,16 @@ namespace FootballBooking.Api.Entities
         public Guid UserId { get; set; }
         public Guid FootballFieldId { get; set; }
 
-        public DateOnly Date { get; set; }
-        public TimeOnly StartTime { get; set; }
-        public TimeOnly EndTime { get; set; }
+        public DateOnly BookingDate { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
+
+        public decimal TotalPrice { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        // Navigation
+        public string? Drink { get; set; }
+
         public User User { get; set; } = null!;
         public FootballField FootballField { get; set; } = null!;
     }
