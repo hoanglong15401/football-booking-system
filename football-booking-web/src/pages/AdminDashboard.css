@@ -1,0 +1,35 @@
+.dashboard {
+    padding: 20px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+    .card h3 {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .card p {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .card span {
+        color: #16a34a;
+    }
+
+    .card.active {
+        background: #111;
+        color: white;
+    }
