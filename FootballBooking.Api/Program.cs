@@ -13,14 +13,23 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // DbContext - MySQL
+var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        ServerVersion.AutoDetect(
-            builder.Configuration.GetConnectionString("DefaultConnection")
-        )
-    )
-);
+{
+    if (!string.IsNullOrEmpty(databaseUrl))
+    {
+        // Railway / Production
+        options.UseMySql(databaseUrl, ServerVersion.AutoDetect(databaseUrl));
+    }
+    else
+    {
+        // Local dev
+        options.UseMySql(
+            builder.Configuration.GetConnectionString("DefaultConnection"),
+            ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+        );
+    }
+});
 
 // CORS
 builder.Services.AddCors(options =>
@@ -90,7 +99,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowReact");
-
 // app.UseHttpsRedirection();
 
 app.UseAuthentication();
@@ -98,6 +106,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Dynamic port cho Railway
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 app.Urls.Add($"http://*:{port}");
 
