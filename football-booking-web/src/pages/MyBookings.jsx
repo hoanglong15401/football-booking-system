@@ -1,5 +1,6 @@
 ﻿import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import "./MyBookings.css";
 
 function MyBookings() {
 
@@ -18,6 +19,24 @@ function MyBookings() {
             .then(data => setBookings(data));
 
     }, []);
+
+    const cancelBooking = async (id) => {
+        const token = localStorage.getItem("token");
+
+        if (!window.confirm("Bạn có chắc muốn hủy đặt sân?")) return;
+
+        await fetch(`http://localhost:5142/api/bookings/cancel/${id}`, {
+            method: "PUT",
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+
+        // reload list
+        setBookings(bookings.map(b =>
+            b.id === id ? { ...b, status: 3 } : b
+        ));
+    };
 
     return (
 
@@ -43,6 +62,15 @@ function MyBookings() {
                             <p>⚽ Sân {b.size}</p>
 
                             <p>💰 {b.price.toLocaleString()} VNĐ</p>
+
+                            {b.status !== 3 && (
+                                <button
+                                    className="cancel-btn"
+                                    onClick={() => cancelBooking(b.id)}
+                                >
+                                    ❌ Hủy đặt sân
+                                </button>
+                            )}
 
                         </div>
 
