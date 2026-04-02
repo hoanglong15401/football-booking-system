@@ -15,7 +15,8 @@ function Home() {
 
     useEffect(() => {
 
-        fetch("http://localhost:5142/api/FootballFields")
+        //fetch("http://localhost:5142/api/FootballFields")
+        fetch(`${process.env.REACT_APP_API_URL}/FootballFields`)
             .then(res => res.json())
             .then(data => {
 
