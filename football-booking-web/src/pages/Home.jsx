@@ -14,21 +14,16 @@ function Home() {
     const [selectedField, setSelectedField] = useState(null);
 
     useEffect(() => {
-
         fetch("https://football-booking-backend.onrender.com/api/FootballFields")
-        fetch(`${process.env.REACT_APP_API_URL}/FootballFields`)
             .then(res => res.json())
             .then(data => {
-
                 const fieldsWithExtra = data.map(field => ({
                     ...field,
                     rating: Math.floor(Math.random() * 2) + 4,
                     image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018"
                 }));
-
                 setFields(fieldsWithExtra);
             });
-
     }, []);
 
     const filteredFields = fields
