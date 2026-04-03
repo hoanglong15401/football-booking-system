@@ -49,7 +49,7 @@ function BookingModal({ field, onClose }) {
     // 📅 load slot đã đặt
     const loadBookedSlots = async (selectedDate) => {
         const res = await fetch(
-            `http://localhost:5142/api/bookings/field/${field.id}?date=${selectedDate}`
+            `https://football-booking-backend.onrender.com/api/bookings/field/${field.id}?date=${selectedDate}`
         );
 
         if (res.ok) {
@@ -85,7 +85,7 @@ function BookingModal({ field, onClose }) {
         }
 
         const response = await fetch(
-            "http://localhost:5142/api/bookings",
+            https://football-booking-backend.onrender.com/api/Bookings
             {
                 method: "POST",
                 headers: {

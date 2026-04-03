@@ -20,7 +20,7 @@ function AdminBookings() {
 
     const fetchBookings = async () => {
         try {
-            const res = await fetch("http://localhost:5142/api/bookings");
+            const res = await fetch("https://football-booking-backend.onrender.com/api/bookings");
             const data = await res.json();
 
             data.sort((a, b) => {
@@ -38,7 +38,7 @@ function AdminBookings() {
     const handleCancel = async (id) => {
         if (!window.confirm("Huỷ booking này?")) return;
 
-        await fetch(`http://localhost:5142/api/bookings/${id}`, {
+        await fetch(`https://football-booking-backend.onrender.com/api/bookings/${id}`, {
             method: "DELETE",
         });
 

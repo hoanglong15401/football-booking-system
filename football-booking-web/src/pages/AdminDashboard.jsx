@@ -10,7 +10,7 @@ function AdminDashboard() {
 
     const fetchDashboard = async () => {
         try {
-            const res = await fetch("http://localhost:5142/api/dashboard");
+            const res = await fetch("https://football-booking-backend.onrender.com/api/dashboard");
 
             if (!res.ok) {
                 console.error("API lỗi:", res.status);

@@ -25,7 +25,7 @@ function Booking() {
 
         try {
             const response = await fetch(
-                "http://localhost:5142/api/bookings",
+                "https://football-booking-backend.onrender.com/api/bookings",
                 {
                     method: "POST",
                     headers: {

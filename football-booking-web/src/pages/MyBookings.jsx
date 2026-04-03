@@ -10,7 +10,7 @@ function MyBookings() {
 
         const token = localStorage.getItem("token");
 
-        fetch("http://localhost:5142/api/bookings/my", {
+        fetch("https://football-booking-backend.onrender.com/api/bookings/my", {
             headers: {
                 "Authorization": "Bearer " + token
             }
@@ -25,7 +25,7 @@ function MyBookings() {
 
         if (!window.confirm("Bạn có chắc muốn hủy đặt sân?")) return;
 
-        await fetch(`http://localhost:5142/api/bookings/cancel/${id}`, {
+        await fetch(`https://football-booking-backend.onrender.com/api/bookings/cancel/${id}`, {
             method: "PUT",
             headers: {
                 "Authorization": "Bearer " + token

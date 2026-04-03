@@ -20,7 +20,7 @@ function Revenue() {
     }, []);
 
     const fetchBookings = async () => {
-        const res = await fetch("http://localhost:5142/api/bookings");
+        const res = await fetch("https://football-booking-backend.onrender.com/api/bookings");
         const data = await res.json();
 
         data.sort(

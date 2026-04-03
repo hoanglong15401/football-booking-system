@@ -10,7 +10,7 @@ function AdminUsers() {
 
     const fetchUsers = async () => {
         try {
-            const res = await fetch("http://localhost:5142/api/users");
+            const res = await fetch("https://football-booking-backend.onrender.com/api/users");
             const data = await res.json();
             setUsers(data);
         } catch (error) {
@@ -21,7 +21,7 @@ function AdminUsers() {
     const handleDelete = async (id) => {
         if (!window.confirm("Xoá user này?")) return;
 
-        await fetch(`http://localhost:5142/api/users/${id}`, {
+        await fetch(`https://football-booking-backend.onrender.com/api/users/${id}`, {
             method: "DELETE",
         });
 
@@ -31,7 +31,7 @@ function AdminUsers() {
     const handleToggleRole = async (user) => {
         const newRole = user.role === "Admin" ? "User" : "Admin";
 
-        await fetch(`http://localhost:5142/api/users/${user.id}`, {
+        await fetch(`https://football-booking-backend.onrender.com/api/users/${user.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

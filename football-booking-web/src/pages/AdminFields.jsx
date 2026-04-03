@@ -13,7 +13,7 @@ function AdminFields() {
 
     const fetchFields = async () => {
         try {
-            const res = await fetch("http://localhost:5142/api/footballfields");
+            const res = await fetch("https://football-booking-backend.onrender.com/api/footballfields");
 
             if (!res.ok) {
                 console.error("API lỗi:", res.status);
@@ -35,7 +35,7 @@ function AdminFields() {
         if (!window.confirm("Bạn chắc chắn muốn xoá?")) return;
 
         try {
-            await fetch(`http://localhost:5142/api/footballfields/${id}`, {
+            await fetch(`https://football-booking-backend.onrender.com/api/footballfields/${id}`, {
                 method: "DELETE",
             });
 
@@ -53,7 +53,7 @@ function AdminFields() {
     const handleToggleActive = async (field) => {
         try {
             await fetch(
-                `http://localhost:5142/api/footballfields/${field.id}`,
+                `https://football-booking-backend.onrender.com/api/footballfields/${field.id}`,
                 {
                     method: "PUT",
                     headers: {

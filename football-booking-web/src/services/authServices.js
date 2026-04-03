@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5142/api/auth";
+const API_URL = "https://football-booking-backend.onrender.com/api/auth";
 
 export const register = async (data) => {
     const res = await fetch(`${API_URL}/register`, {
