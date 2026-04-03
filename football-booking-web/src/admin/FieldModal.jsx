@@ -18,8 +18,8 @@ function FieldModal({ field, onClose, onSuccess }) {
     const handleSubmit = async () => {
         const method = field ? "PUT" : "POST";
         const url = field
-            ? `http://localhost:5142/api/footballfields/${field.id}`
-            : "http://localhost:5142/api/footballfields";
+            ? `https://football-booking-backend.onrender.com/api/footballfields/${field.id}`
+            : "https://football-booking-backend.onrender.com/api/footballfields";
 
         await fetch(url, {
             method,
