@@ -13,7 +13,7 @@ function Register() {
     const handleRegister = async () => {
 
         const response = await fetch(
-            https://football-booking-backend.onrender.com/api/Auth/register
+            "https://football-booking-backend.onrender.com/api/Auth/register",
             {
                 method: "POST",
                 headers: {
