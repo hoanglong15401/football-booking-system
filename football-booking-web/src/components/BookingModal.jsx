@@ -56,7 +56,7 @@ function BookingModal({ field, onClose }) {
             const data = await res.json();
 
             // 🔥 đảm bảo format giống nhau
-            const times = data.map(b => b.time.slice(0, 5)); // "18:00:00" -> "18:00"
+            const times = data.map(b => b.startTime.slice(0, 5)); // "18:00:00" -> "18:00"
             setBookedSlots(times);
         }
     };
@@ -85,7 +85,7 @@ function BookingModal({ field, onClose }) {
         }
 
         const response = await fetch(
-            "https://football-booking-backend.onrender.com/api/Bookings"
+            "https://football-booking-backend.onrender.com/api/Bookings",
             {
                 method: "POST",
                 headers: {
